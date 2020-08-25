@@ -11,7 +11,8 @@ var WORDLISTS = [
   'italian',
   'japanese',
   'spanish',
-  'korean'
+  'korean',
+  'portuguese'
 ]
 
 function update () {
@@ -32,7 +33,11 @@ function download () {
 }
 
 function fetchRaw (name) {
-  var url = 'https://raw.githubusercontent.com/bitcoin/bips/master/bip-0039/' + name + '.txt'
+  branch = 'master'
+  if (name == 'portuguese') {
+    branch = '29ebb1fa6ef6f5bcf504a446b1a0512fa1cecaea'
+  }
+  var url = 'https://raw.githubusercontent.com/bitcoin/bips/'+branch+'/bip-0039/' + name + '.txt'
   log('download ' + url)
 
   return fetch(url).then(function (response) { return response.text() })

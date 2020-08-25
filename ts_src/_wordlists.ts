@@ -37,6 +37,11 @@ try {
   wordlists.english = _default as string[];
   wordlists.EN = _default as string[];
 } catch (err) {}
+try {
+  _default = require('../src/wordlists/portuguese.json');
+  wordlists.portuguese = _default as string[];
+  wordlists.portuguese = _default as string[];
+} catch (err) {}
 
 // Last one to overwrite wordlist gets to be default.
 export { wordlists, _default };
